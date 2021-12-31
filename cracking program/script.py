@@ -40,6 +40,9 @@ class Cracker():
                     print("Password found!")
                     print("Login:", self.login)
                     print("Password:", single_data[3])
+                    ask = input("Do you want to continue scan? (Y/N): ")
+                    if ask.upper() == "Y":
+                        sys.exit()
 
         else:
             print("File could not be found!")
