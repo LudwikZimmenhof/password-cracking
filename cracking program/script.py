@@ -59,5 +59,12 @@ class Cracker():
         else:
             return True
 
-
-cracker = Cracker("https://cracking.dresperanto.repl.co/logout.php", "passes.txt", "admin", 'Login', ('Username', 'Password', 'Submit'), "Invalid Login Details")
+_website = str(input("Ip address/Domain of a Website \n Eg. https://cracking.dresperanto.repl.co/: \n"))
+_pwd = str(input("Path to file with Passwords \n Eg. /home/hackerman/Programming/pwd cracking/cracking program/passes.txt: \n"))
+_login = str(input("Value of a Login/Username \n Eg. admin or root: \n"))
+_button_value = str(input("Value of a Submit Button \n Eg. Login: \n"))
+_username = str(input("Post name of a Login/Username Box \n Eg. Username: \n"))
+_pass = str(input("Post name of a Password Box \n Eg. Password: \n"))
+_button_post = str(input("Post name of a Password Box \n Eg. Submit: \n"))
+_fail = str(input("Fail message \n Eg. Invalid Login Details: \n"))
+cracker = Cracker(_website, _pwd, _login, _button_value, (_username, _pass, _button_post), _fail)
