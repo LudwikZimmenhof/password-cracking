@@ -68,4 +68,4 @@ try:
     FAIL = sys.argv[6]
     cracker = Cracker(URL, PASS, LOGIN, BUTTON_VALUE, (PARAMS_NAMES[0], PARAMS_NAMES[1], PARAMS_NAMES[2]), FAIL)
 except IndexError:
-    print("ERROR")
+    print("Usage: python script.py <url> <path_to_file_with_passes> <login> <submit_button_value> <post_of_login/username?password?submit_button, separeted with '?' <fail_phrase>")
