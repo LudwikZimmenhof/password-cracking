@@ -40,9 +40,6 @@ class Cracker():
                     print("Password found!")
                     print("Login:", self.login)
                     print("Password:", single_data[3])
-                    ask = input("Do you want to continue scan? (Y/N): ")
-                    if ask.upper() == "Y":
-                        sys.exit()
 
         else:
             print("File could not be found!")
@@ -62,12 +59,13 @@ class Cracker():
         else:
             return True
 
-_website = str(input("Ip address/Domain of a Website: \nEg. https://cracking.dresperanto.repl.co/ \n\n"))
-_pwd = str(input("Path to file with Passwords: \nEg. /home/hackerman/Programming/pwd cracking/cracking program/passes.txt \n\n"))
-_login = str(input("Value of a Login/Username: \nEg. admin or root \n\n"))
-_button_value = str(input("Value of a Submit Button: \nEg. Login \n\n"))
-_username = str(input("Post name of a Login/Username Box: \nEg. Username \n\n"))
-_pass = str(input("Post name of a Password Box: \nEg. Password \n\n"))
-_button_post = str(input("Post name of a Password Box: \nEg. Submit \n\n"))
-_fail = str(input("Fail message: \nEg. Invalid Login Details \n\n"))
-cracker = Cracker(_website, _pwd, _login, _button_value, (_username, _pass, _button_post), _fail)
+try:
+    URL = sys.argv[1]
+    PASS = sys.argv[2]
+    LOGIN = sys.argv[3]
+    BUTTON_VALUE = sys.argv[4]
+    PARAMS_NAMES = sys.argv[5].split('?')
+    FAIL = sys.argv[6]
+    cracker = Cracker(URL, PASS, LOGIN, BUTTON_VALUE, (PARAMS_NAMES[0], PARAMS_NAMES[1], PARAMS_NAMES[2]), FAIL)
+except IndexError:
+    print("ERROR")
